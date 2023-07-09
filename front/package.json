@@ -1,0 +1,27 @@
+{
+  "name": "untitled1",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
+    "typescript": "^5.1.6",
+    "vite": "^4.4.0"
+  },
+  "dependencies": {
+    "chart.js": "^4.3.0",
+    "chartjs-plugin-datalabels": "^2.2.0",
+    "react": "^18.2.0",
+    "react-chartjs-2": "^5.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.14.1",
+    "react-tooltip": "^5.18.0",
+    "sqlite3": "^5.1.6"
+  }
+}
