@@ -2,23 +2,21 @@ import React from 'react';
 import { Pie } from 'react-chartjs-2';
 import {ArcElement, Chart, Legend, Tooltip} from "chart.js";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+import {ChannelData} from "./form.tsx";
 Chart.register(ArcElement,Tooltip, Legend, ChartDataLabels);
-export interface DataItem {
-  source: string;
-  customers: number;
-}
 
 interface PieChartProps {
-  data: DataItem[];
+  data: ChannelData[];
 }
 
 const PieChart: React.FC<PieChartProps> = ({ data }) => {
+  const filteredData = data.filter((item) => item.customers > 0)
 
   const chartData = {
-    labels: data.map(item => item.source),
+    labels: filteredData.map(item => item.source),
     datasets: [
       {
-        data: data.map(item => item.customers),
+        data: filteredData.map(item => item.customers),
         backgroundColor: [
           'rgba(255, 99, 132, 0.6)',
           'rgba(54, 162, 235, 0.6)',
@@ -56,10 +54,7 @@ const PieChart: React.FC<PieChartProps> = ({ data }) => {
           dataArr.map((d: number) => {
             sum += d;
           });
-          let percentage = (value*100 / sum).toFixed(2)+"%";
-          return percentage;
-
-
+          return (value*100 / sum).toFixed(2)+"%";
         },
       }
     },
